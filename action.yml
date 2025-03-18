@@ -1,0 +1,34 @@
+{
+  name: 'Conventional Commit or PR Validator',
+  description: 'Ensures that either all commit messages or the PR title follow the Conventional Commits standard, labels the PR accordingly, and enforces squash-only merges if required.',
+  inputs: {
+    GITHUB_TOKEN: {
+      description: 'GitHub token to access API',
+      required: true
+    },
+    task_types: {
+      description: 'Comma-separated list of allowed commit types',
+      required: false,
+      default: 'feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style'
+    },
+    add_label: {
+      description: 'Whether to add commit type labels to the PR',
+      required: false,
+      default: 'true'
+    },
+    add_scope_label: {
+      description: 'Whether to add scope-based labels',
+      required: false,
+      default: 'true'
+    },
+    custom_labels : {
+      description: 'Replaces the short hand types with long names for labels',
+      required: false,
+      default: '{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}'
+    }
+  },
+  runs: {
+    using: 'node20',
+    main: 'dist/index.js'
+  }
+}
