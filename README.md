@@ -15,12 +15,19 @@ This GitHub Action ensures that either all commit messages or the pull request t
 | `task_types`       | Comma-separated list of allowed commit types.                    | No       | `feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style` |
 | `add_label`        | Whether to add commit type labels to the PR.                     | No       | `true`                                              |
 | `add_scope_label`  | Whether to add scope-based labels.                               | No       | `true`                                              |
+| `custom_labels`    | Adds custom labels to the types used.                            | No       | `{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}` |
 
 ## Usage
 
 To utilize this action in your workflow, add the following job to your `.github/workflows/` YAML file:
 
 ```yaml
+name: PR Conventional Commit Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
 jobs:
   validate-commits-or-pr-title:
     runs-on: ubuntu-latest
@@ -28,7 +35,13 @@ jobs:
       - uses: FritjofH/conventional-commit-validator@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          task_types: 'feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style'
+          add_label: true
+          add_scope_label: true
+          custom_labels: '{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}'
 ```
+
+The above are the default values.
 
 ## Building the Action
 
