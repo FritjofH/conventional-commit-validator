@@ -1,6 +1,6 @@
 {
   name: 'Conventional Commit or PR Validator',
-  description: 'Ensures that either all commit messages or the PR title follow the Conventional Commits standard, labels the PR accordingly, and enforces squash-only merges if required.',
+  description: 'Ensures that either all commit messages or the PR title follow the Conventional Commits standard, labels the PR accordingly.',
   inputs: {
     GITHUB_TOKEN: {
       description: 'GitHub token to access API',
