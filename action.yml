@@ -1,5 +1,5 @@
 {
-  name: 'Conventional Commit or PR Validator',
+  name: 'Conventional Commit PR Validator',
   description: 'Ensures that either all commit messages or the PR title follow the Conventional Commits standard, labels the PR accordingly.',
   inputs: {
     GITHUB_TOKEN: {
