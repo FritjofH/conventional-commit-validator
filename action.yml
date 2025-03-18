@@ -30,5 +30,7 @@
   runs: {
     using: 'node20',
     main: 'dist/index.js'
-  }
+  },
+  icon: "git-commit",
+  color: "blue"
 }
