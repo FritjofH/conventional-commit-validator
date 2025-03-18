@@ -82,7 +82,7 @@ async function run() {
 
     if (labelsToAdd.length > 0) {
       let uniqueLabels = [...new Set(labelsToAdd)]
-      await octokit.rest.issues.setLabels({
+      await octokit.rest.issues.addLabels({
         owner: context.repo.owner,
         repo: context.repo.repo,
         issue_number: prNumber,
