@@ -32590,7 +32590,7 @@ async function run() {
     commits.forEach(commit => {
       const match = commit.commit.message.match(CC_PATTERN);
       if (match) {
-        core.info("commit", commit, "is a match");
+        core.info("commit: " + commit + " follows the convention");
         commitTypes.add(match[1]);
         if (ADD_SCOPE_LABEL && match[2]) {
           scopeLabels.add(match[2]);
@@ -32639,7 +32639,7 @@ async function run() {
 
     if (labelsToAdd.length > 0) {
       let uniqueLabels = [...new Set(labelsToAdd)]
-      await octokit.rest.issues.setLabels({
+      await octokit.rest.issues.addLabels({
         owner: context.repo.owner,
         repo: context.repo.repo,
         issue_number: prNumber,
