@@ -28,7 +28,7 @@ describe('GitHub Action - Conventional Commit Check', () => {
                     update: jest.fn(),
                 },
                 issues: {
-                    setLabels: jest.fn(),
+                    addLabels: jest.fn(),
                 },
             },
         };
@@ -144,7 +144,7 @@ describe('GitHub Action - Conventional Commit Check', () => {
         });
 
         await run();
-        expect(octokitMock.rest.issues.setLabels).toHaveBeenCalledWith({
+        expect(octokitMock.rest.issues.addLabels).toHaveBeenCalledWith({
             owner: 'test-owner',
             repo: 'test-repo',
             issue_number: 1,
