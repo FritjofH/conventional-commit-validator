@@ -10,6 +10,12 @@ async function run() {
     const ADD_SCOPE_LABEL = core.getInput('add_scope_label') === 'true';
     const CUSTOM_LABELS = JSON.parse(core.getInput('custom_labels') || '{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}');
 
+    core.info("Running with the following settings:")
+    core.info(" - task_types: " + TASK_TYPES);
+    core.info(" - add_label: " + ADD_LABEL);
+    core.info(" - add_scope_label: " + ADD_SCOPE_LABEL);
+    core.info(" - custom_labels: " + CUSTOM_LABELS);
+
     const token = core.getInput('GITHUB_TOKEN');
     const octokit = github.getOctokit(token);
 
@@ -33,7 +39,7 @@ async function run() {
     commits.forEach(commit => {
       const match = commit.commit.message.match(CC_PATTERN);
       if (match) {
-        core.info("commit: " + commit.sha + " follows the convention");
+        core.info("commit (sha): " + commit.sha + " follows the convention");
         commitTypes.add(match[1]);
         if (ADD_SCOPE_LABEL && match[2]) {
           scopeLabels.add(match[2]);
