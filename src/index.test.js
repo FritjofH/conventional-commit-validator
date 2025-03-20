@@ -17,6 +17,7 @@ describe('GitHub Action - Conventional Commit Check', () => {
                 'add_label': 'true',
                 'add_scope_label': 'true',
                 'GITHUB_TOKEN': 'test-token',
+                'link_on_failure': "confluence.com"
             };
             return inputs[name];
         });
@@ -119,7 +120,7 @@ describe('GitHub Action - Conventional Commit Check', () => {
         });
 
         await run();
-        expect(core.setFailed).toHaveBeenCalledWith('Neither commit messages nor PR title follow the Conventional Commits standard.');
+        expect(core.setFailed).toHaveBeenCalledWith('Neither commit messages nor PR title follow the Conventional Commits standard.\nRead more here: confluence.com');
     });
 
     test('adds labels when commits follow Conventional Commits', async () => {

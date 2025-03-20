@@ -21,10 +21,15 @@
       required: false,
       default: 'true'
     },
-    custom_labels : {
+    custom_labels: {
       description: 'Replaces the short hand types with long names for labels',
       required: false,
       default: '{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}'
+    },
+    link_on_failure: {
+      description: 'Adds a link to the error message with a note saying "Read more here: <link>"',
+      required: false,
+      default: undefined
     }
   },
   runs: {

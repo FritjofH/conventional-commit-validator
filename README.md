@@ -16,6 +16,7 @@ This GitHub Action ensures that either all commit messages or the pull request t
 | `add_label`        | Whether to add commit type labels to the PR.                     | No       | `true`                                              |
 | `add_scope_label`  | Whether to add scope-based labels.                               | No       | `true`                                              |
 | `custom_labels`    | Adds custom labels to the types used.                            | No       | `{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}` |
+| `link_on_failure`  | Adds a link to the error message with a note saying "Read more here: <link>".                            | No       | `undefined` |
 
 ## Usage
 
