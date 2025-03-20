@@ -32567,7 +32567,7 @@ async function run() {
     const ADD_SCOPE_LABEL = core.getInput('add_scope_label') === 'true';
     const CUSTOM_LABELS = JSON.parse(core.getInput('custom_labels') || '{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}');
 
-    const LINK_ON_FAILURE = core.getInput('link_on_failure' || 0);
+    const LINK_ON_FAILURE = core.getInput('link_on_failure');
 
     const token = core.getInput('GITHUB_TOKEN');
     const octokit = github.getOctokit(token);
