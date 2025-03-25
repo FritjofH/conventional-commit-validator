@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 async function run() {
   try {
-    const TASK_TYPES = core.getInput('task_types') || 'feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style';
+    const TASK_TYPES = core.getInput('task_types') || 'feat,fix,docs,test,ci,refactor,perf,chore,build,style,ops';
     const CC_PATTERN = new RegExp(`^(${TASK_TYPES.split(',').join('|')})\\s*(?:\\(([^)]+)\\))?: .+`);  
 
     const ADD_LABEL = core.getInput('add_label') === 'true';
