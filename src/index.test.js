@@ -13,7 +13,7 @@ describe('GitHub Action - Conventional Commit Check', () => {
 
         core.getInput.mockImplementation((name) => {
             const inputs = {
-                'task_types': 'feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style',
+                'task_types': 'feat,fix,docs,test,ci,refactor,perf,chore,build,style,ops',
                 'add_label': 'true',
                 'add_scope_label': 'true',
                 'GITHUB_TOKEN': 'test-token',

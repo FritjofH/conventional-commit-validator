@@ -9,7 +9,7 @@
     task_types: {
       description: 'Comma-separated list of allowed commit types',
       required: false,
-      default: 'feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style'
+      default: 'feat,fix,docs,test,ci,refactor,perf,chore,build,style,ops'
     },
     add_label: {
       description: 'Whether to add commit type labels to the PR',

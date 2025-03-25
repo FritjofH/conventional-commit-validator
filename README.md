@@ -12,7 +12,7 @@ This GitHub Action ensures that either all commit messages or the pull request t
 | Name               | Description                                                      | Required | Default                                             |
 |--------------------|------------------------------------------------------------------|----------|-----------------------------------------------------|
 | `GITHUB_TOKEN`     | GitHub token to access API.                                      | Yes      | N/A                                                 |
-| `task_types`       | Comma-separated list of allowed commit types.                    | No       | `feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style` |
+| `task_types`       | Comma-separated list of allowed commit types.                    | No       | `feat,fix,docs,test,ci,refactor,perf,chore,build,style,ops` |
 | `add_label`        | Whether to add commit type labels to the PR.                     | No       | `true`                                              |
 | `add_scope_label`  | Whether to add scope-based labels.                               | No       | `true`                                              |
 | `custom_labels`    | Adds custom labels to the types used.                            | No       | `{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}` |
@@ -36,7 +36,7 @@ jobs:
       - uses: FritjofH/conventional-commit-validator@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          task_types: 'feat,fix,docs,test,ci,refactor,perf,chore,revert,build,style'
+          task_types: 'feat,fix,docs,test,ci,refactor,perf,chore,build,style,ops'
           add_label: true
           add_scope_label: true
           custom_labels: '{"feat":"feature","docs":"documentation","ci":"CI/CD","perf":"performance"}'
